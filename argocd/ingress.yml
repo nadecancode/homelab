@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-server-http-ingress
+  namespace: argocd
+  annotations:
+    cert-manager.io/cluster-issuer: tls-issuer
+spec:
+  ingressClassName: cilium
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argo-cd-argocd-server
+                port:
+                  name: http
+      host: argocd.example.com
+  tls:
+    - hosts:
+        - argocd.space.nade.me
+      secretName: argocd-ingress-http
