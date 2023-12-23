@@ -21,4 +21,4 @@ spec:
   tls:
     - hosts:
         - argocd.space.nade.me
-      secretName: argocd-ingress-http
+      secretName: argocd-tls-secret
