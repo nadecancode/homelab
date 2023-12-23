@@ -17,7 +17,7 @@ spec:
                 name: argo-cd-argocd-server
                 port:
                   name: http
-      host: argocd.example.com
+      host: argocd.space.nade.me
   tls:
     - hosts:
         - argocd.space.nade.me
