@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argocd-server-http-ingress
+  name: argocd-ingress
   namespace: argocd
   annotations:
     cert-manager.io/cluster-issuer: tls-issuer
@@ -14,7 +14,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: argo-cd-argocd-server
+                name: argocd-argo-cd-server
                 port:
                   name: http
       host: argocd.space.nade.me
